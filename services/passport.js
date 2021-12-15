@@ -21,7 +21,8 @@ passport.use(new GoogleStrategy({
     clientID: keys.googleClientID,
     clientSecret: keys.googleClientSecret,
     // User sent here after granting permissions
-    callbackURL: '/auth/google/callback'
+    callbackURL: '/auth/google/callback',
+    proxy: true
 }, 
 (accessToken, refreshToken, profile, done) => {
     User.findOne({ googleId: profile.id })
@@ -38,5 +39,5 @@ passport.use(new GoogleStrategy({
                     .then(user => done(null, user));
             }
         })
-})
+    })
 );
