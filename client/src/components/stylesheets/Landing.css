@@ -1,0 +1,28 @@
+.videoTag {
+    position: fixed;
+    object-fit: cover;
+    min-width: 100%;
+    min-height: 100vh;
+}
+
+.marketingText {
+    width: 100%; 
+    position: absolute;
+    top: 50%; 
+    left: 50%; 
+    transform: translate(-50%, -50%); 
+    color: #fff; 
+    text-align: center;
+    text-shadow: 0px 4px 3px rgba(0,0,0,0.4),
+             0px 8px 13px rgba(0,0,0,0.1),
+             0px 18px 23px rgba(0,0,0,0.1);
+}
+
+.brand-logo {
+    font-style: italic;
+    font-weight: bold;
+}
+
+.marketingText p {
+    margin-top: -1em;
+}
