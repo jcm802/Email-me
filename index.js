@@ -3,7 +3,8 @@ const express           = require('express'),
       mongoose          = require('mongoose'),
       cookieSession     = require('cookie-session'),
       passport          = require('passport'),
-      keys              = require('./config/keys');
+      keys              = require('./config/keys'),
+      bodyParser       = require('body-parser');
 require('./models/User');
 require('./services/passport');
 
@@ -11,6 +12,7 @@ mongoose.connect(keys.mongoURI);
                     
 const app = express();
 
+app.use(bodyParser.json());
 app.use(
     cookieSession({
         // Required properties: -
