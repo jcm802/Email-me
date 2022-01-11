@@ -1,14 +1,15 @@
-nav ul a {
-    display: flex;
-}
-
 nav {
     padding-left: 1em;
     background-color: #111;
+    position: sticky;
+}
+
+.right {
+    vertical-align: middle;
 }
 
 .fa-google {
     padding-left: 0.5em;
-    font-size: 1.2em;
+    font-size: 1em;
 }
 
