@@ -1,7 +1,9 @@
 // Connected to index.js
+const keys = require('../config/keys');
 // Requires stripe npm module
 // Requires stripe code specifically for generating credit card charge requests
-const stripe = require('stripe');
+const stripe = require('stripe')(// Secret 
+    Keykeys.stripeSecretKey);
 // To find it go to: -
 //      - Stripe API Docs stripe.com/docs/api/charges
 //      - Core Resources
