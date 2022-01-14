@@ -26,5 +26,7 @@ export const handleToken = (token) =>
         const res = await axios.post('/api/stripe', token);
         // we are referencing the user when dispatching this action, so we are using the same type as the previous action creator
         dispatch({ type: FETCH_USER, payload: res.data});
+        // this dispatch function causes the header to update credits dynamically as FETCH_USER is sent again and the reducer
+        // is looking for this. The redux state updates and so everything else changes as well.
     };
   

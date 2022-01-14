@@ -20,7 +20,10 @@ class Header extends Component {
             default:
                 return [
                     // if you are providing JSX elements in array, they must have a unique key
-                <li key="1"><Payments/></li>,
+                <li key="1"><Payments /></li>,
+                <li key="3" style={{margin: '0 10px', color: 'gold'}}>
+                    Credits: {this.props.auth.credits}
+                </li>,
                 <li key="2"><a href="/api/logout">Logout</a></li>
                 ];
         }
