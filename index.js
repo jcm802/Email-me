@@ -30,11 +30,18 @@ require('./routes/billingRoutes')(app);
 
 // Configure express correctly for production only (Heroku)
 if(process.env.NODE_ENV === 'production'){
-    // Serve up production assets (Main.js, Main.css)
-    // if any get request comes into express and is not recognised as a route 
+    // Firstly: Serve up production assets (Main.js, Main.css)
+    // Desc: if any get request comes into express and is not recognised as a route 
     // look in 'client/build' to see if there is a file that the request seeks
     app.use(express.static('client/build'));
-    // Serve up index.html if route not recognised
+
+    // Secondly: If there is no file in 'client/build' found do the following...
+    // Desc: if a route is not recognised by express assume react router is responsible
+    // for that route (not express), send index.html to the browser as there are no specific asset files found
+    const path = require('path');
+    app.get('*', (req, res) => {
+        res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'))
+    })
 
 }
 
