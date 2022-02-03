@@ -4,7 +4,7 @@ const express           = require('express'),
       cookieSession     = require('cookie-session'),
       passport          = require('passport'),
       keys              = require('./config/keys'),
-      bodyParser       = require('body-parser');
+      bodyParser        = require('body-parser');
 require('./models/User');
 require('./services/passport');
 
@@ -27,6 +27,16 @@ app.use(passport.session());
 
 require('./routes/authRoutes')(app);
 require('./routes/billingRoutes')(app);
+
+// Configure express correctly for production only (Heroku)
+if(process.env.NODE_ENV === 'production'){
+    // Serve up production assets (Main.js, Main.css)
+    // if any get request comes into express and is not recognised as a route 
+    // look in 'client/build' to see if there is a file that the request seeks
+    app.use(express.static('client/build'));
+    // Serve up index.html if route not recognised
+
+}
 
 // Dynamic port binding with heroku
 const PORT = process.env.PORT || 5000;
