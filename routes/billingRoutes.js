@@ -19,7 +19,7 @@ module.exports = app => {
     app.post('/api/stripe', requireLogin, async (req, res) => {
         // Stripe back end
         const charge = await stripe.charges.create({
-            // Standard charge specified as $5
+            // Standard charge specified as 500 cents aka $5
             amount: 500,
             currency: 'usd',
             description: '$5 for 5 credits',

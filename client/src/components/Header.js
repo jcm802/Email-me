@@ -9,6 +9,7 @@ import './stylesheets/Header.css';
 import Payments from './Payments';
 // Class based component because the header will change based on state, more organised approach than if functional was used
 class Header extends Component {
+    
     // Helper method to show and hide elements if logged in or not
     // (Conditional Rendering)
     renderContent(){
